@@ -8,4 +8,5 @@ various scripts for the raspberry pi
 3. a simple webapp to control the scripts through web http using python bottle
 4. take a snap and tweet using the Twython library
 5. record a few second video
+6. start a VNCserver so you can remotely login using the VNCClient
 
