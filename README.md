@@ -10,3 +10,7 @@ various scripts for the raspberry pi
 5. record a few second video
 6. start a VNCserver so you can remotely login using the VNCClient
 
+
+Note: dropbox_uploader.sh was cloned from https://github.com/andreafabrizi/Dropbox-Uploader
+
+
