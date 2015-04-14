@@ -5,8 +5,9 @@ import re
 
 
 #global variables
-#PASSWORD = 'test'
-IP_ADDRESS = '192.168.2.5' #IP address of the PI
+IP_ADDRESS=subprocess.check_output("ifconfig | grep 192 | awk '{split($2,a,\":\"); print a[2]}'", shell=True)
+IP_ADDRESS=IP_ADDRESS.strip() #get IP address of the PI
+
 now = time.strftime("%d/%m/%Y-%H:%M:%S")
 
 print(now)
