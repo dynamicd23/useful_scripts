@@ -16,7 +16,7 @@ current_state = False
 while True:
     time.sleep(0.1)
     #print("done sleep check now")
-    #current_state = GPIO.input(sensor)
+    current_state = GPIO.input(sensor)
     if current_state:
         subprocess.call(["sudo", "/usr/bin/motion", "start"])
         subprocess.call(["/home/pi/my_scripts/manage_dropbox_upload.sh", "start"])
