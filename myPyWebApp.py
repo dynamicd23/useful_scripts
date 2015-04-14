@@ -10,7 +10,7 @@ IP_ADDRESS=IP_ADDRESS.strip() #get IP address of the PI
 
 now = time.strftime("%d/%m/%Y-%H:%M:%S")
 
-print(now)
+#print(now)
 
 
 @route('/')
