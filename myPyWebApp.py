@@ -65,9 +65,9 @@ def logTemp():
     subprocess.call('/home/pi/my_scripts/heatTemperature.sh')
     return '<h1>Check the heat log ' + now + '</h1>'
 
-
-try:
-    print('Bottle Opened')
-    run(host=IP_ADDRESS, port=80)
-finally:
-    print('Bottle Closed')
+if '__name__' == '__main__':
+    try:
+        print('Bottle Opened')
+        run(host=IP_ADDRESS, port=80)
+    finally:
+        print('Bottle Closed')
