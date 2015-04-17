@@ -62,8 +62,9 @@ def recordVideo():
 @route('/logTemp', method='POST')
 def logTemp():
     print('Trying to log temperature of the PI')
-    subprocess.call('/home/pi/my_scripts/heatTemperature.sh')
-    return '<h1>Check the heat log ' + now + '</h1>'
+    subprocess.call('/home/pi/my_scripts/heatTemperature.sh')    
+    result = subprocess.check_output('tail -1 /home/pi/tempLog/measureTemplog.txt', shell=True)
+    return '<h1>Check the heat log ' + now + '<br /><br />' + result + '</h1>'
 
 
 try:
