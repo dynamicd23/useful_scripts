@@ -22,7 +22,8 @@
 </form>
 <br />
 <form method="POST" action="snapAndTweet">
-        <p>Snap And Tweet  
+        <p>Snap And Tweet
+        <input id = "sub40" name="name" type="text" value="strikes and gutters.." />  
         <input id ="sub4" type="submit" value="Take It!"/>
 	</p>
 </form>

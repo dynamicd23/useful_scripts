@@ -7,6 +7,7 @@ from auth import (
 )
 import glob
 import os
+import sys
 
 
 twitter = Twython(consumer_key, consumer_secret, access_token, access_token_secret)
@@ -14,7 +15,11 @@ twitter = Twython(consumer_key, consumer_secret, access_token, access_token_secr
 def main():
 	try:
 		for fileName in glob.glob('/home/pi/twitter/tweetPics/mypic*'):
-			message = "Yo!"
+			if len(sys.argv) > 1:
+				print(sys.argv[1])
+				message = sys.argv[1]
+			else:
+				message = "Yo! Buzz I am sing song"
 			with open(fileName, 'rb') as photo:
 				twitter.update_status_with_media(status=message, media=photo)
 				print("Tweeted: %s" % message)

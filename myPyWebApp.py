@@ -50,8 +50,9 @@ def motionStatus():
 @route('/snapAndTweet', method='POST')
 def snapAndTweet():
     print('Trying to take a snap and post a tweet')
-    subprocess.call('/home/pi/my_scripts/snapAndTweet.sh')
-    return '<h1>Check Twitter ' + now + '</h1>'
+    message = request.forms.get('name')
+    subprocess.call(['/home/pi/my_scripts/snapAndTweet.sh', message])
+    return '<h1>Check Twitter ' + now + 'message was=' + message + '</h1>'
 
 @route('/recordVideo', method='POST')
 def recordVideo():
