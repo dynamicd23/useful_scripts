@@ -21,17 +21,20 @@ def hello():
 @route('/startMotion', method='POST')
 def startMotion():
     print('Trying to start the motion subprocess')
-    subprocess.call(["sudo", "/usr/bin/motion", "start"])
-    subprocess.call(["/home/pi/my_scripts/manage_dropbox_upload.sh", "start"])
-    return '<h1>Motion started ' + now + '</h1>'
+    subprocess.call(["/home/pi/gpio_scripts/start_motionSensor_wrapper.sh"])
+    #subprocess.call(["sudo", "python", "/home/pi/gpio_scripts/startGPIOMotionSensor.py", "&", ">>", "/home/pi/gpio_scripts/motionSensor.log"])
+    #subprocess.call(["sudo", "/usr/bin/motion", "start"])
+    #subprocess.call(["/home/pi/my_scripts/manage_dropbox_upload.sh", "start"])
+    return '<h1>MotionSensor started ' + now + '</h1>'
 
 
 @route('/stopMotion', method='POST')
 def stopMotion():
     print('Trying to stop the motion subprocess')
-    subprocess.call(["sudo", "service", "motion", "stop"])
-    subprocess.call(["/home/pi/my_scripts/manage_dropbox_upload.sh", "stop"], shell=False)
-    return '<h1>Motion Stopped '+ now + '</h1>'
+    subprocess.call(["sudo", "python", "/home/pi/gpio_scripts/stopGPIOMotionSensor.py", ">>", "/home/pi/gpio_scripts/motionSensor.log"])
+    #subprocess.call(["sudo", "service", "motion", "stop"])
+    #subprocess.call(["/home/pi/my_scripts/manage_dropbox_upload.sh", "stop"], shell=False)
+    return '<h1>MotionSensor Stopped '+ now + '</h1>'
 
 
 @route('/motionStatus', method='POST')
