@@ -1,0 +1,25 @@
+#! /bin/sh
+# /etc/init.d/ddPiHomeWebApp
+
+# The following part always gets executed.
+echo "ddPiHomeWebApp script"
+
+# The following part carries out specific functions depending on arguments.
+case "$1" in
+  start)
+    echo "Starting"
+    nohup sudo python /home/pi/bottle/myPyWebApp.py &
+    echo "Its alive. I feel good"
+    ;;
+  stop)
+    echo "Stopping ddPiHomeWebApp"
+    python /home/pi/bottle/stopddPiWebApp.py
+    echo "All done. I am the bereaved"
+    ;;
+  *)
+    echo "Usage: /etc/init.d/ddPiHomeWebApp {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
