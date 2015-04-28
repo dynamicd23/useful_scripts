@@ -46,7 +46,7 @@ def motionStatus():
     #for line in re.split('\n', output):
     #if re.search("motion", ouput):
     #    status = output + '<br />'
-    output=subprocess.check_output("ps -ef | grep motion", shell=True)
+    output=subprocess.check_output("ps -ef | egrep 'motion|startGPIOMotionSensor'", shell=True)
     return '<h1>' + now + '<br />' + output + '</h1>'
 
 

@@ -2,6 +2,8 @@
 
 cd /
 sudo truncate nohup.out --size 0
+cd /home/pi/gpio_scripts
+truncate motionSensor.log --size 0
 cd /var/log
 sudo rm *0*
 sudo rm *1*
